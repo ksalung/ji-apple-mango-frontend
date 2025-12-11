@@ -1,5 +1,10 @@
 import UserMain from "@/app/components/User/Main";
+import { Category } from "@/types/category";
 
 export default function UserMainPage() {
-    return <UserMain />
+
+    const userCategory: Category[] = [];
+
+
+    return <UserMain userCategory={userCategory} />
 }
