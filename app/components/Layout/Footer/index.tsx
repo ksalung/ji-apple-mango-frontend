@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { useEffect, useState } from 'react'
-import { FooterLinkType } from '@/app/types/footerlinks'
+import { FooterLinkType } from '@/types/footerlinks'
 
 const Footer = () => {
   const [footerlink, SetFooterlink] = useState<FooterLinkType[]>([])

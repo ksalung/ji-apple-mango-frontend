@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server'
 
-import { HeaderItem } from '@/app/types/menu'
-import { CourseType } from '@/app/types/course'
-import { Hourtype } from '@/app/types/hour'
-import { CourseDetailType } from '@/app/types/coursedetail'
-import { MentorType } from '@/app/types/mentor'
-import { TestimonialType } from '@/app/types/testimonial'
-import { FooterLinkType } from '@/app/types/footerlinks'
+import { HeaderItem } from '@/types/menu'
+import { CourseType } from '@/types/course'
+import { Hourtype } from '@/types/hour'
+import { CourseDetailType } from '@/types/coursedetail'
+import { MentorType } from '@/types/mentor'
+import { TestimonialType } from '@/types/testimonial'
+import { FooterLinkType } from '@/types/footerlinks'
 
 const HeaderData: HeaderItem[] = [
   { label: 'Home', href: '/#Home' },

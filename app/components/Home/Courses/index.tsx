@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import Image from 'next/image'
-import { CourseDetailType } from '@/app/types/coursedetail'
+import { CourseDetailType } from '@/types/coursedetail'
 import CourseDetailSkeleton from '../../Skeleton/CourseDetail'
 import Link from 'next/link'
 

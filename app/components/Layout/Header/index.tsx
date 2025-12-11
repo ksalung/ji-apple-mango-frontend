@@ -7,7 +7,7 @@ import MobileHeaderLink from '../Header/Navigation/MobileHeaderLink'
 import Signin from '@/app/components/Auth/SignIn'
 import SignUp from '@/app/components/Auth/SignUp'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { HeaderItem } from '@/app/types/menu'
+import { HeaderItem } from '@/types/menu'
 import { useAuth } from '@/contexts/AuthContext'
 
 const Header: React.FC = () => {
