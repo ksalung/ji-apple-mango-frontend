@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { VideoCard } from "./VideoCard";
+import { Category } from "@/types/category";
 
 const MOCK_THUMBNAILS = [
     'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
@@ -23,7 +24,7 @@ const ALL_RECOMMENDED_VIDEOS: Video[] = Array.from({ length: 24 }).map((_, i) =>
     postedAt: `${i + 1}시간 전`,
 }));
 
-export const Recommendation = () => {
+export const Recommendation = ({ userCategory }: { userCategory?: Category }) => {
     const [recommendationLimit, setRecommendationLimit] = useState(8);
 
     const loadMoreRecommendations = () => {
@@ -34,7 +35,7 @@ export const Recommendation = () => {
     return (
         <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                ✨ 회원님을 위한 맞춤 추천
+                {userCategory?.name ? userCategory?.name : "✨ 회원님을 위한 맞춤 추천"}
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">

@@ -9,6 +9,12 @@ import SignUp from '@/app/components/Auth/SignUp'
 import { Icon } from '@iconify/react/dist/iconify.js'
 import { HeaderItem } from '@/types/menu'
 import { useAuth } from '@/contexts/AuthContext'
+import Link from 'next/link'
+
+const USER_PROFILE = {
+  name: '홍길동',
+  avatarUrl: 'https://via.placeholder.com/150',
+};
 
 const Header: React.FC = () => {
 
@@ -19,7 +25,6 @@ const Header: React.FC = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [sticky, setSticky] = useState(false)
   const [isSignInOpen, setIsSignInOpen] = useState(false)
-  const [isSignUpOpen, setIsSignUpOpen] = useState(false)
 
   const signInRef = useRef<HTMLDivElement>(null)
   const signUpRef = useRef<HTMLDivElement>(null)
@@ -51,12 +56,6 @@ const Header: React.FC = () => {
       setIsSignInOpen(false)
     }
     if (
-      signUpRef.current &&
-      !signUpRef.current.contains(event.target as Node)
-    ) {
-      setIsSignUpOpen(false)
-    }
-    if (
       mobileMenuRef.current &&
       !mobileMenuRef.current.contains(event.target as Node) &&
       navbarOpen
@@ -72,15 +71,15 @@ const Header: React.FC = () => {
       window.removeEventListener('scroll', handleScroll)
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [navbarOpen, isSignInOpen, isSignUpOpen])
+  }, [navbarOpen, isSignInOpen])
 
   useEffect(() => {
-    if (isSignInOpen || isSignUpOpen || navbarOpen) {
+    if (isSignInOpen || navbarOpen) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = ''
     }
-  }, [isSignInOpen, isSignUpOpen, navbarOpen])
+  }, [isSignInOpen, navbarOpen])
 
   return (
     <header
@@ -88,7 +87,9 @@ const Header: React.FC = () => {
         }`}>
       <div>
         <div className='container mx-auto max-w-7xl px-4 flex items-center justify-between'>
-          <Logo />
+          <Link href={`${isLoggedIn ? '/user/main' : '/'}`} >
+            <Logo />
+          </Link>
           <nav className='hidden lg:flex grow items-center gap-8 justify-start ml-14'>
             {headerData.map((item, index) => (
               <HeaderLink key={index} item={item} />
@@ -104,13 +105,28 @@ const Header: React.FC = () => {
                 Sign In
               </button>
             ) : (
-              <button
-                className='hidden lg:block bg-transparent text-primary border hover:bg-primary border-primary hover:text-white duration-300 px-6 py-2 rounded-lg hover:cursor-pointer'
-                onClick={() => {
-                  logout()
-                }}>
-                Logout
-              </button>
+              <div className="flex items-center gap-4">
+                <Link
+                  href="/user/detail"
+                  className="flex items-center gap-2 p-2 rounded-lg transition-colors duration-200"
+                >
+                  <div className="w-8 h-8 rounded-full overflow-hidden border border-gray-200">
+                    <img
+                      src={USER_PROFILE.avatarUrl}
+                      alt="Profile"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="text-gray-700 font-medium text-sm">{USER_PROFILE.name}</span>
+                </Link>
+                <button
+                  className='bg-transparent text-primary border hover:bg-primary border-primary hover:text-white duration-300 px-6 py-2 rounded-lg hover:cursor-pointer'
+                  onClick={() => {
+                    logout()
+                  }}>
+                  Logout
+                </button>
+              </div>
             )}
 
             {isSignInOpen && (

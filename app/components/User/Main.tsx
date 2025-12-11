@@ -20,6 +20,12 @@ export default function UserMain({ userCategory }: { userCategory: Category[] })
 
             {/* --- Section 2: Recommended for You (Grid) --- */}
             <Recommendation />
+
+            {userCategory && userCategory.map((category) => (
+                <Recommendation key={category.id} userCategory={category} />
+            ))}
+
+
         </div>
     );
 }
