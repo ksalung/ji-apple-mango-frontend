@@ -25,6 +25,7 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -34,7 +35,7 @@
   }
 
   section {
-    @apply py-14
+    @apply py-5
   }
 
   h1 {

@@ -1,9 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import MentorSkeleton from '../../Skeleton/Mentor'
 
 interface MemberType {
   imageSrc: string;
@@ -22,7 +19,7 @@ const Mentor = () => {
     {
       imageSrc: '/images/team/fox.png',
       name: '변만수',
-      title: 'Project Reader',
+      title: 'Project Leader',
     },
     {
       imageSrc: '/images/team/dog.png',

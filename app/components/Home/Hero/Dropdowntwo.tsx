@@ -8,7 +8,7 @@ import {
   Transition,
 } from '@headlessui/react'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { Hourtype } from '@/app/types/hour'
+import { Hourtype } from '@/types/hour'
 
 const Dropdown = () => {
   const [hour, setHour] = useState<Hourtype[]>([])
@@ -55,17 +55,15 @@ const Dropdown = () => {
                 <ListboxOption
                   key={personIdx}
                   className={({ active }) =>
-                    `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                      active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
+                    `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
                     }`
                   }
                   value={person}>
                   {({ selected }) => (
                     <>
                       <span
-                        className={`block truncate ${
-                          selected ? 'font-medium' : 'font-normal'
-                        }`}>
+                        className={`block truncate ${selected ? 'font-medium' : 'font-normal'
+                          }`}>
                         {person.name}
                       </span>
                       {selected ? (
