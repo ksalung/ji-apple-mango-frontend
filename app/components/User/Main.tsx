@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { VideoCard } from '../Common/VideoCard';
 import { HotTrend } from '../Common/HotTrend';
 import { Recommendation } from '../Common/Recommendation';
 import { Category } from '@/types/category';
